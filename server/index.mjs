@@ -2,6 +2,7 @@ import "./loadEnvironment.mjs";
 import express from 'express';
 import poems from "./routes/poems.mjs";
 import connectDB from './db/conn.mjs';
+import cors from 'cors';
 
 // Environment variables
 const PORT = process.env.PORT || 3000;
@@ -17,4 +18,5 @@ connectDB().then(() => {
 });
 
 app.use(express.json());
+app.use(cors())
 app.use("/poems", poems);

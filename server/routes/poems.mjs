@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
 // Get a random poem
 router.get('/lucky', async (req, res) => {
     try {
-        res.status(200).json(await Poem.aggregate([{ $sample: { size: 1 } }]));
+        const [ randomPoem ] = await Poem.aggregate([{ $sample: { size: 1 } }]);
+        res.status(200).json(randomPoem);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
