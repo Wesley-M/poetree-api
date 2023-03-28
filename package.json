@@ -5,7 +5,8 @@
   "main": "./server/index.mjs",
   "scripts": {
     "seed": "node ./server/scripts/seedPoems.mjs",
-    "start": "nodemon",
+    "start": "node ./server/index.mjs",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
